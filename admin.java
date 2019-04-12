@@ -6,9 +6,9 @@ import java.util.LinkedList;
 import javax.swing.*;
 import java.awt.GridBagConstraints;
 
-class admin {
-
-    JFrame frame = new JFrame("ADMIN");
+class admin 
+{
+    JFrame frame = new JFrame("WELCOME TO ADMIN LOGIN");
     JPanel windowContent = new JPanel();
     int X, Y;
     JLabel name = new JLabel("Username");
@@ -20,25 +20,28 @@ class admin {
     JButton backbut = new JButton("Back");
     ButtonHandler1 butlistener = new ButtonHandler1();
 
-    admin() {
+    admin()
+    {
         Toolkit toolKit = Toolkit.getDefaultToolkit();
         java.awt.Dimension screenSize =
                 toolKit.getScreenSize();
         X = screenSize.height;
         Y = screenSize.width;
         frame.setVisible(true);
-          frame.setBounds(0,0,2*X,Y);
+        frame.setBounds(0,0,X/2,Y-1000);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-         frame.setIconImage(new ImageIcon("C:\\Users\\user\\Desktop\\java\\TPortal\\bus.jpg").getImage());
+        frame.setIconImage(new ImageIcon("C:\\Users\\user\\Desktop\\java\\TPortal\\bus.jpg").getImage());
 
         login.addActionListener(listener);
         backbut.addActionListener(butlistener);
+        windowContent.setBackground(new Color(250, 240, 230));
 
         windowContent.setLayout(new FlowLayout());
-
+        name.setForeground(new Color(0, 128, 0));
 
         windowContent.add(name);
         windowContent.add(username);
+        password.setForeground(new Color(0, 128, 0));
         windowContent.add(password);
         windowContent.add(passwd);
         windowContent.add(login);
@@ -46,11 +49,9 @@ class admin {
 
         frame.setContentPane(windowContent);
         frame.setVisible(true);
-       frame.setBounds(0,0,2*X,Y);
+       frame.setBounds(0,0,X,Y-1000);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-
     }
-
     private class ButtonHandler implements ActionListener 
     {
 
@@ -68,20 +69,13 @@ class admin {
             }
         }
     }
-     private class ButtonHandler1 implements ActionListener
+    private class ButtonHandler1 implements ActionListener
     {
-       // String newSelection;
         @Override
         public void actionPerformed(ActionEvent e) 
         {
            Main ob=new Main();
           frame.dispose();
-         
         }
-        
-      
     }  
-    
 }
-
-

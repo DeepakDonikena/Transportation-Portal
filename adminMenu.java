@@ -4,7 +4,7 @@ import java.awt.event.*;
 import java.awt.event.ActionListener;
 import java.util.LinkedList;
 import javax.swing.*;
-import java.awt.GridBagConstraints;
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -51,17 +51,26 @@ class adminMenu{
          frame.setIconImage(new ImageIcon("C:\\Users\\user\\Desktop\\java\\TPortal\\bus.jpg").getImage());
         this.company=company;
         welcome=new JLabel("WELCOME TO "+company.toUpperCase()+" ADMIN MENU");
-        
+        but1.setForeground(new Color(0, 128, 0));
+        but1.setBackground(new Color(250, 240, 230));
         but1.addActionListener(listener1);
+        but2.setBackground(new Color(250, 240, 230));
+        but2.setForeground(new Color(0, 128, 0));
         but2.addActionListener(listener2);
+        but3.setBackground(new Color(250, 240, 230));
+        but3.setForeground(new Color(220, 20, 60));
         but3.addActionListener(listener3);
+        but4.setForeground(new Color(0, 128, 0));
+        but4.setBackground(new Color(250, 240, 230));
         but4.addActionListener(listener4);
+        backbut.setForeground(new Color(220, 20, 60));
+        backbut.setBackground(new Color(250, 240, 230));
         backbut.addActionListener(butlistener);
         
-        welcome.setForeground(Color.red);
+        welcome.setForeground(Color.BLUE);
         welcome.setFont(new Font("Helvetica",Font.BOLD,18));
         windowContent.setLayout(new GridLayout(0,1));
-        //but1.setPreferredSize(new Dimension(80,20));
+       
         windowContent.add(welcome);
         windowContent.add(but1);
         windowContent.add(but2);
@@ -69,18 +78,13 @@ class adminMenu{
         windowContent.add(but4);
         windowContent.add(backbut);
         frame.setContentPane(windowContent);
-        frame.setBounds(0,0,2*X,Y);
+        windowContent.setBackground(new Color(250, 240, 230));
+        frame.setBounds(0,0,X/2,Y/2);
         frame.setVisible(true);
-       // frame.setSize(X,Y);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        
-        
     }
-
-    
-    
-      private class ButtonHandler1 implements ActionListener
-       {
+    private class ButtonHandler1 implements ActionListener
+    {
            @Override
           public void actionPerformed(ActionEvent e)
            {
@@ -106,7 +110,6 @@ class adminMenu{
            {
                NullPointerException q=new NullPointerException();
               String rem=(String)JOptionPane.showInputDialog(windowContent,"Enter the unique key of the bus you wish to remove","INPUT UNIQUE KEY",JOptionPane.PLAIN_MESSAGE, null,null, "");
-              //insert code to remove bus           
               try{
                   if(rem.length()==0){
                       flag=1;throw q;}
@@ -141,7 +144,6 @@ class adminMenu{
                       else
                           JOptionPane.showMessageDialog(windowContent,"THE BUS WITH KEY "+rem+" DOESNT EXIST IN THE LIST");
                        
-                          
                       } }catch (FileNotFoundException ex) {
                       Logger.getLogger(adminMenu.class.getName()).log(Level.SEVERE, null, ex);
                   } catch (IOException ex) {
@@ -150,10 +152,7 @@ class adminMenu{
                       Logger.getLogger(adminMenu.class.getName()).log(Level.SEVERE, null, ex);
                   }
               }
-              
-
            }
-           
        }
        
        private class ButtonHandler4 implements ActionListener
@@ -168,7 +167,6 @@ class adminMenu{
        }
        private class ButtonHandler5 implements ActionListener
     {
-       // String newSelection;
         @Override
         public void actionPerformed(ActionEvent e) 
         {
@@ -177,4 +175,3 @@ class adminMenu{
         }
     }  
  }
-
